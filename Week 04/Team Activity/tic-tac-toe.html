@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>W04 Team Activity</title>
+      
+
+      
+    <style>
+      
+        #board {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            
+            width: 300px;
+            height: 300px;
+            margin: 50px auto 50px;
+        }
+        
+        #board div {
+            border-right: 1px solid gray;
+            border-bottom: 1px solid gray;
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            font-weight: bold;
+            font-size: 30px;
+            font-family: Arial, sans-serif;
+            
+        }
+        
+        #board div:nth-child(3n) {
+            border-right: 0;
+        }
+        
+        #board div:nth-child(n+7){
+            border-bottom: 0;
+        }
+        
+        div.reset {
+            text-align: center;
+        }
+        
+        #reset {
+            padding: 15px 50px;
+            font-weight: bold;
+            font-size: 20px;
+            background: red;
+            color: #fff;
+        }
+        
+    </style>
+      
+  </head>
+  <body>
+
+      <div id="board">
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+          <div class="cell"></div>
+      </div>
+      
+      <div class="reset">
+          <button id="reset">RESET</button>
+      </div>
+      
+      
+      
+    <script>
+        
+        const winningCombos = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6], 
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+        ];
+        
+        let playerTurn = "X";
+        let winner;
+        var cells = document.querySelectorAll(".cell");
+        
+        
+        function getWinner(){
+            let winner = null;
+            
+            winningCombos.forEach(function(combo, index) {
+            
+                if (cells[combo[0]] && cells[combo[0]] === cells[combo[1]] && cells[combo[0]] === cells[combo[2]]) winner = cells[combo[0]];
+            });
+            
+            return winner;
+        }
+        
+
+        cells.forEach(function(cell) {
+            cell.addEventListener("touchend", turns);
+            
+            function turns() {
+                if (playerTurn == "X") {
+                    cell.innerHTML = "X";
+                    playerTurn = "O";
+                } else {
+                    cell.innerHTML = "O";
+                    playerTurn = "X";
+                }   
+            }
+            
+            winner = getWinner();
+        });
+        
+        
+        const resetButton = document.getElementById("reset").addEventListener("click", reset);
+        
+
+        function reset(){
+            cells.forEach(function(cell) {
+                cell.innerHTML = "";
+            });
+        }
+        
+    </script>
+      
+  </body>
+</html>

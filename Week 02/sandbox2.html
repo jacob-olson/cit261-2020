@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <title>Title of Your Page</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+	
+    <div id="display">
+    </div>
+    
+    
+  <script>
+      
+      let display = document.getElementById("display");
+      let number = Math.floor(Math.random() * 6) + 1;
+      display.innerHTML += `<p> ${number} </p>`;
+      let i = 1;
+      
+      while (number > i) {
+        let number = Math.floor(Math.random() * 6) + 1;
+        display.innerHTML += `<p> ${number} </p>`;
+        i++;          
+      }
+      
+      /*
+      for(i = 0; i < 6; i++) {
+          let number = Math.floor(Math.random() * 6) + 1;
+          display.innerHTML += `<p> ${number} </p>`;
+      }
+      */ 
+      
+switch (number) {
+    case 4:
+    console.log('You rolled a four');
+    break;
+    case 5:
+    console.log('You rolled a five');
+    break;
+    case 6:
+    console.log('You rolled a six');
+    break;
+    default:
+    console.log('You rolled a number less than four');
+    break;
+}
+     
+  </script>
+    
+</body>
+</html>
