@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+        <title>Local Quakes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                background: #3D5E80;
+                margin: 0;
+                padding: 30px 40px;
+                font-family: Arial, sans-serif;
+            }
+            
+            ul#mainNav {
+                list-style-type: none;
+                margin: 0 auto 50px auto;
+                padding: 0;
+                color: #fff;
+                display: block;
+                text-align: center;
+            }
+            
+            ul#mainNav li {
+                display: inline-block;
+            }
+            
+            ul#mainNav li a {
+                background: #1D1F21;
+                color: #3D5E80;
+                text-decoration: none;
+                display: block;
+                padding: 7px 12px;
+                border-radius: 10px;
+                font-weight: bold;
+                font-size: 20px;
+            }
+            
+            ul#mainNav li a:hover {
+                background: #D0CFD4;
+                color: #1D1F21;
+            }
+                
+            h1 {
+                font-size: 50px;
+                text-transform: uppercase;
+                margin: 0;
+                padding-bottom: 30px;
+                color: #EFEFEF;
+                letter-spacing: .1em;
+                text-align: center;
+            }
+            
+            ul#quakeList h2 {
+                margin: 0 0 .5em 0;
+            }
+            
+            ul#quakeList {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            ul#quakeList li {
+                background: #EFEFEF;
+                padding: 20px 30px;
+                margin-bottom: 10px;
+                color: #2D2E30;
+                border-radius: 5px;
+                box-shadow: 0px 0px 7px 1px rgba(0,0,0, .3)
+            }
+            
+            #radius {
+                width: 150px;
+                padding: 0;
+                height: 40px;
+                font-size: 16px;
+                font-weight: bold;
+                text-align: center;
+                border: 0;
+            }
+            
+            #radiusList {
+                list-style-type: none;
+                margin: 0 0 20px;
+                padding: 0;
+                text-align: center;
+                color: #EFEFEF;
+            }
+            
+            #radiusList li {
+                display: inline-block;
+            }
+            
+            #radiusList button {
+                display: block;
+                font-weight: bold;
+                text-transform: uppercase;
+                padding: 0 10px;
+                height: 40px;
+                background: #1D1F21;
+                border: 0;
+                color: #3D5E80;
+                font-size: 16px;
+            }
+        </style>    
+    </head>
+
+    <body>
+        <header>
+            <nav>
+              <heading>
+                <nav><ul id="mainNav"></ul></nav>
+              </heading>
+            </nav>
+          </header>
+
+        <main>
+            <h1>Quake List</h1>
+
+            <ul id="radiusList">
+                <li>
+                <input label="radius" id="radius" placeholder="Enter Radius" text="" /></li>
+                <li><button id="submit">Go</button></li>
+            </ul>
+            
+            <ul id="quakeList"></ul>
+            <ul id="content"></ul>
+        </main>
+        <script src='./index.js' type="module"></script>
+    </body>
+
+</html>
