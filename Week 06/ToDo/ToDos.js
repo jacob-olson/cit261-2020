@@ -44,12 +44,14 @@ function saveToDo(task, key) {
 
 
 document.getElementById("deleteButton").addEventListener("click", function deleteToDo(key) {
+    console.log(key);
+    
     key = liveToDos.length - 1;
   
     // add the new task to our list
     liveToDos.splice(key,1);
   
-    console.log(liveToDos);
+    //console.log(liveToDos);
     
     const element = document.getElementById("taskList");
     
@@ -112,7 +114,7 @@ class ToDos {
       
     function bindComplete(){
         // attach the complete method to our check button
-        bindTouch('.completeButton', this.completeToDo.bind(this));
+        //bindTouch('.completeButton', this.completeToDo.bind(this));
     }
   }
 }
